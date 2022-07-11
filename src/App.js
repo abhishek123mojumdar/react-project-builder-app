@@ -1,11 +1,11 @@
 import React from 'react';
 import './style.css';
-import { expenses } from './JsonServer/Expense';
-
+import { ExpenseComponent } from './ExpenseComponent/ExpenseComponent';
 export default function App() {
   return (
-    <div>
+    <div class="container">
       <h1>Expense Manager</h1>
+      <ExpenseComponent></ExpenseComponent>
     </div>
   );
 }
