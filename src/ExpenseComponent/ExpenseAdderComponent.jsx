@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ExpenseStyle.css';
 
-export function ExpenseAdderComponent() {
+export function ExpenseAdderComponent(props) {
   const [formState, setFormState] = useState({
     title: '',
     amount: '',
@@ -28,13 +28,13 @@ export function ExpenseAdderComponent() {
     setFormState(() => {
       return {
         ...formState,
-        date: new Date(e.target.value),
+        date:e.target.value,
       };
     });
   };
   var addExpense = function () {
     console.log(formState);
-    props.saveExpenseData;
+    props.onSaveExpenseData(formState);
     setFormState(() => {
       return {
         ...formState,

@@ -4,8 +4,8 @@ import './ExpenseStyle.css';
 export function ExpenseListComponent(props) {
   const [title, setTitle] = useState(props.expenseData.title);
 
-  var updateTitle = function () {
-    setTitle('updated ' + title);
+  var removeExpense = function () {
+    props.removeExpenseItem(props.id);
   };
 
   return (
@@ -18,9 +18,8 @@ export function ExpenseListComponent(props) {
         {props.expenseData.amount}
       </span>
       <span>
-        <button class="btn btn-sm btn-info ml" onClick={updateTitle}>
-          {' '}
-          Update
+        <button class="btn btn-sm btn-info ml" onClick={removeExpense}>
+          Delete
         </button>
       </span>
     </li>
