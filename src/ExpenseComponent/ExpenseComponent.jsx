@@ -12,19 +12,18 @@ export function ExpenseComponent() {
       ...expenseData,
       id: Math.random().toString(),
     };
-    console.log(payLoad);
     setExpense((prevState) => {
-      return [...expenseList, payLoad];
+      return [...prevState, payLoad];
     });
   };
 
   let removeListItem = function (id) {
-    console.log(id);
-    let index = expenseList.findIndex(expense => expense.id === id)
-    setExpense((prevState)=> {
-      expenseList.splice(index,1)
-      return expenseList
-    })
+    setExpense((prevState) => {
+      let updatedExpenseList = prevState.filter(
+        (prevItem) => prevItem.id !== id
+      );
+      return updatedExpenseList;
+    });
   };
 
   return (
