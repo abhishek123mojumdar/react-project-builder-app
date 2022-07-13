@@ -19,10 +19,10 @@ export function ExpenseComponent() {
 
   let removeListItem = function (id) {
     setExpense((prevState) => {
-      let updatedExpenseList = prevState.filter(
+      let expenseUpdatedList = prevState.filter(
         (prevItem) => prevItem.id !== id
       );
-      return updatedExpenseList;
+      return expenseUpdatedList;
     });
   };
 
