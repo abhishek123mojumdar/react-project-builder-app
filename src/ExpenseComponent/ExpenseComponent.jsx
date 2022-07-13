@@ -32,16 +32,20 @@ export function ExpenseComponent() {
       <ExpenseAdderComponent
         onSaveExpenseData={saveExpenseData}
       ></ExpenseAdderComponent>
-      {expenseList.map((expense) => {
-        return (
-          <ExpenseListComponent
-            key={expense.id}
-            id={expense.id}
-            expenseData={expense}
-            removeExpenseItem={removeListItem}
-          ></ExpenseListComponent>
-        );
-      })}
+      {expenseList.length > 0 ? (
+        expenseList.map((expense) => {
+          return (
+            <ExpenseListComponent
+              key={expense.id}
+              id={expense.id}
+              expenseData={expense}
+              removeExpenseItem={removeListItem}
+            ></ExpenseListComponent>
+          );
+        })
+      ) : (
+        <div className="card-body">No expenses found</div>
+      )}
     </div>
   );
 }
