@@ -5,8 +5,10 @@ export function ExpenseAdderComponent(props) {
   const [formState, setFormState] = useState({
     title: '',
     amount: '',
-    date: new Date(),
+    date: '',
   });
+
+  const [error, setError] = useState(false);
 
   let getTitle = function (e) {
     setFormState(() => {
@@ -28,12 +30,22 @@ export function ExpenseAdderComponent(props) {
     setFormState(() => {
       return {
         ...formState,
-        date:e.target.value,
+        date: e.target.value,
       };
     });
   };
   var addExpense = function () {
-    console.log(formState);
+    if (
+      !formState.title.trim() ||
+      !formState.amount.trim() ||
+      !formState.date.trim()
+    ) {
+      alert('Empty form item not allowed');
+      setError(true);
+      return;
+    } else {
+      setError(false);
+    }
     props.onSaveExpenseData(formState);
     setFormState(() => {
       return {
@@ -56,7 +68,9 @@ export function ExpenseAdderComponent(props) {
             onChange={getTitle}
             value={formState.title}
           />
+          {error ? <p>Empty form items not allowed</p> : ``}
         </div>
+
         <div className="col-md-6">
           <input
             type="text"
@@ -65,6 +79,7 @@ export function ExpenseAdderComponent(props) {
             onChange={getAmount}
             value={formState.amount}
           />
+          {error ? <p>Empty form items not allowed</p> : ``}
         </div>
       </div>
       <br />
@@ -77,6 +92,7 @@ export function ExpenseAdderComponent(props) {
             onChange={getDate}
             value={formState.date}
           />
+          {error ? <p>Empty form items not allowed</p> : ``}
         </div>
       </div>
       <br />
