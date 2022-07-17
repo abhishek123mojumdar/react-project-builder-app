@@ -1,4 +1,4 @@
-# react-hiewag
+# react-Expense Manager
 
 Expense Manager
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-hiewag)
@@ -23,3 +23,6 @@ Technically it covers on a very high level
 6. Event Handling
 
 This project is a nice way to understand and start with the basics of React
+
+
+![image](https://user-images.githubusercontent.com/17353764/179397447-1d0b63b1-610d-4067-b914-6e24633bc551.png)
