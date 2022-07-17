@@ -4,7 +4,9 @@ import { ExpenseComponent } from './ExpenseComponent/ExpenseComponent';
 export default function App() {
   return (
     <div class="container">
-      <h1>Expense Manager</h1>
+      <div className="heading">
+        <h1>Expense Manager</h1>
+      </div>
       <ExpenseComponent></ExpenseComponent>
     </div>
   );
