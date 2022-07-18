@@ -11,3 +11,6 @@ export default function App() {
     </div>
   );
 }
+
+// This is like the main.ts in angular
+//There is no concept of modules in React , it is a library (like jquery) rather than a framework like angular

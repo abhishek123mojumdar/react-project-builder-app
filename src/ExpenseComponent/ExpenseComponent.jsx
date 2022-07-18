@@ -49,3 +49,9 @@ export function ExpenseComponent() {
     </div>
   );
 }
+
+/* ExpenseAdderComponent,ExpenseListComponent  this is similar to component in angular ; Here the things are not segregated as HTML and JS . We write html code in js files ; more commonly known as JSX. If you have worked on jqeury or plain vanilla js more often , you will relate to this pattern  */
+
+// removeListItem , saveExpenseData is more that @Output in angular
+
+// properties like id={expense.id} expenseData={expense} are like [id] [expenseData] in angular in which we send data from one component to another component by @input

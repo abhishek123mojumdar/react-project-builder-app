@@ -106,3 +106,5 @@ export function ExpenseAdderComponent(props) {
     </div>
   );
 }
+
+//Props are more like @input in angular they help in passing data form one componeent to another component
