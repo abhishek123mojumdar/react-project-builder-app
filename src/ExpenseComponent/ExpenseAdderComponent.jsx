@@ -67,8 +67,15 @@ export function ExpenseAdderComponent(props) {
             placeholder="Title"
             onChange={getTitle}
             value={formState.title}
+            style={{ borderColor: error ? 'red' : '' }}
           />
-          {error ? <p>Empty form items not allowed</p> : ``}
+          {error ? (
+            <p style={{ borderColor: error ? 'red' : '', color: 'red' }}>
+              Empty form items not allowed
+            </p>
+          ) : (
+            ``
+          )}
         </div>
 
         <div className="col-md-6">
@@ -78,8 +85,15 @@ export function ExpenseAdderComponent(props) {
             placeholder="Amount"
             onChange={getAmount}
             value={formState.amount}
+            style={{ borderColor: error ? 'red' : '' }}
           />
-          {error ? <p>Empty form items not allowed</p> : ``}
+          {error ? (
+            <p style={{ borderColor: error ? 'red' : '', color: 'red' }}>
+              Empty form items not allowed
+            </p>
+          ) : (
+            ``
+          )}
         </div>
       </div>
       <br />
@@ -91,8 +105,15 @@ export function ExpenseAdderComponent(props) {
             placeholder="Date"
             onChange={getDate}
             value={formState.date}
+            style={{ borderColor: error ? 'red' : '' }}
           />
-          {error ? <p>Empty form items not allowed</p> : ``}
+          {error ? (
+            <p style={{ borderColor: error ? 'red' : '', color: 'red' }}>
+              Empty form items not allowed
+            </p>
+          ) : (
+            ``
+          )}
         </div>
       </div>
       <br />
