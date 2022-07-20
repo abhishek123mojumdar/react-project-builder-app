@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExpenseListComponent } from './ExpenseListComponent';
 import { ExpenseAdderComponent } from './ExpenseAdderComponent';
 import { expenses } from '../JsonServer/Expense';
 import './ExpenseStyle.css';
-
+const filter = (arr, year) =>
+  arr.filter((expense) => {
+    return year === expense.date.getFullYear().toString();
+  });
 export function ExpenseComponent() {
   const [expenseList, setExpense] = useState(expenses);
+  const [year, setYear] = useState('2020');
+
+  const [filterList, setFilterList] = useState([]);
+  useEffect(() => {
+    setFilterList(filter(expenseList, year));
+  }, [expenseList, year]);
+  const [selectedYear, setSelectedYear] = useState('2020');
   let saveExpenseData = function (expenseData) {
     expenseData.date = new Date(expenseData.date);
     const payLoad = {
@@ -17,23 +27,35 @@ export function ExpenseComponent() {
     });
   };
 
-  let removeListItem = function (id) {
-    setExpense((prevState) => {
-      let expenseUpdatedList = prevState.filter(
-        (prevItem) => prevItem.id !== id
-      );
-      return expenseUpdatedList;
-    });
-  };
+  const removeListItem = (id) =>
+    setExpense((prevState) =>
+      prevState.filter((prevItem) => prevItem.id !== id)
+    );
 
+  const filterListWrtYear = (e) => setYear(e.target.value);
   return (
     <div className="card mt">
       <div className="card-body"></div>
       <ExpenseAdderComponent
         onSaveExpenseData={saveExpenseData}
       ></ExpenseAdderComponent>
-      {expenseList.length > 0 ? (
-        expenseList.map((expense) => {
+      <div className="row">
+        <div className="col-md-6"></div>
+        <div className="col-md-6">
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            onChange={filterListWrtYear}
+          >
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+          </select>
+        </div>
+      </div>
+      <br />
+      {filterList.length > 0 ? (
+        filterList.map((expense) => {
           return (
             <ExpenseListComponent
               key={expense.id}

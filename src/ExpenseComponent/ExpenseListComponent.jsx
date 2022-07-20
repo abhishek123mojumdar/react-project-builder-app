@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ExpenseStyle.css';
 
 export function ExpenseListComponent(props) {
@@ -7,18 +7,24 @@ export function ExpenseListComponent(props) {
   var removeExpense = function () {
     props.removeExpenseItem(props.id);
   };
+  // useEffect(() => {
+  //   console.log(', on mount', props);
+  //   return () => {
+  //     console.log('on unmounting of item ', props);
+  //   };
+  // });
 
   return (
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">{title}</div>
+    <li className="list-group-item d-flex justify-content-between align-items-start">
+      <div className="ms-2 me-auto">
+        <div className="fw-bold">{title}</div>
         {props.expenseData.date.toLocaleDateString()}
       </div>
-      <span class="badge bg-primary rounded-pill">
+      <span className="badge bg-primary rounded-pill">
         {props.expenseData.amount}
       </span>
       <span>
-        <button class="btn btn-sm btn-info ml" onClick={removeExpense}>
+        <button className="btn btn-sm btn-info ml" onClick={removeExpense}>
           Delete
         </button>
       </span>

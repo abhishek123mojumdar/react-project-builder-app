@@ -58,7 +58,7 @@ export function ExpenseAdderComponent(props) {
   };
 
   return (
-    <div class="card-body">
+    <div className="card-body">
       <div className="row">
         <div className="col-md-6">
           <input
