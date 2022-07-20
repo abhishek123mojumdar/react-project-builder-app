@@ -67,7 +67,7 @@ export function ExpenseAdderComponent(props) {
             placeholder="Title"
             onChange={getTitle}
             value={formState.title}
-            style={{ borderColor: error ? 'red' : '' }}
+            style={{ borderColor: error ? 'red' : 'teal' }}
           />
           {error ? (
             <p style={{ borderColor: error ? 'red' : '', color: 'red' }}>
@@ -85,7 +85,7 @@ export function ExpenseAdderComponent(props) {
             placeholder="Amount"
             onChange={getAmount}
             value={formState.amount}
-            style={{ borderColor: error ? 'red' : '' }}
+            style={{ borderColor: error ? 'red' : 'teal' }}
           />
           {error ? (
             <p style={{ borderColor: error ? 'red' : '', color: 'red' }}>
@@ -105,7 +105,7 @@ export function ExpenseAdderComponent(props) {
             placeholder="Date"
             onChange={getDate}
             value={formState.date}
-            style={{ borderColor: error ? 'red' : '' }}
+            style={{ borderColor: error ? 'red' : 'teal' }}
           />
           {error ? (
             <p style={{ borderColor: error ? 'red' : '', color: 'red' }}>

@@ -44,7 +44,12 @@ export function ExpenseComponent() {
           );
         })
       ) : (
-        <div className="card-body">No expenses found</div>
+        <div
+          className="card-body"
+          style={{ textAlign: 'center', fontWeight: '900', color: 'teal' }}
+        >
+          No expenses found
+        </div>
       )}
     </div>
   );
