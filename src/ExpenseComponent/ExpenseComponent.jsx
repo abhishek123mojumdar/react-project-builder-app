@@ -4,9 +4,7 @@ import { ExpenseAdderComponent } from './ExpenseAdderComponent';
 import { expenses } from '../JsonServer/Expense';
 import './ExpenseStyle.css';
 const filter = (arr, year) =>
-  arr.filter((expense) => {
-    return year === expense.date.getFullYear().toString();
-  });
+  arr.filter((expense) => year === expense.date.getFullYear().toString());
 export function ExpenseComponent() {
   const [expenseList, setExpense] = useState(expenses);
   const [year, setYear] = useState('2020');
